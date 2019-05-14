@@ -10,18 +10,20 @@
   </head>
 
   <body>
+    <ul class="nav">
     <% if user_signed_in? %>
-       <%= current_user.username %>
+      <li><%= current_user.username %></li>
     <% end %> 
-    <%= link_to 'Home' %>
-    <%= link_to 'Notifications' %>
-    <%= link_to 'Messages' %> 
+    <li><%= link_to 'Home' %></li>
+    <li><%= link_to 'Notifications' %></li>
+    <li><%= link_to 'Messages' %></li> 
     <% if !user_signed_in? %>
-      <%= link_to 'Sign up', new_user_registration_path %>`
-      <%= link_to 'Sign in', new_user_session_path %>
+     <li><%= link_to 'Sign up', new_user_registration_path %></li>
+     <li><%= link_to 'Sign in', new_user_session_path %></li>
       <% else %>
-        <%= link_to 'Log out', destroy_user_session_path, method: :delete %>   
-        <%= link_to 'Settings', edit_user_registration_path %>
+       <li style="float:right"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>  
+       <li><%= link_to 'Settings', edit_user_registration_path %></li>
+    </ul>
         
     <%  end %>
     <a href="/user/<%= current_user.username%>">Profile</a>
