@@ -1,0 +1,28 @@
+<div class="container">
+<ul class="nav">        
+</li>
+  <% if !user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to user_session_path, class: "nav-link" do %>
+          <i class="fas fa-sign-in-alt"></i> Login
+          <%end%>
+        </li>
+        <li class="nav-item">
+            <%= link_to new_user_registration_path, class: "nav-link" do%>
+            <i class="fas fa-user-plus"></i>Sign up
+            <%end%>
+        </li>
+  <% else %>
+        <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            <i class="fas fa-walking"></i> Log out
+            <% end %>
+        </li>
+        <li class="nav-item">
+            <%= link_to edit_user_registration_path, class: "nav-link" do %>
+            <i class="fas fa-user-edit"></i> Settings
+            <% end %>
+        </li>
+  <% end %>
+</ul>
+</div>
