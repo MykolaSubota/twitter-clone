@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+   <ul class="navbar-nav ml-auto">
+     
+    <% if !user_signed_in? %>
+    <%= link_to new_user_registration_path, class: "nav-link" do  %>
+    <i class="far fa-images"></i> Sign Up
+    <% end %> 
+    <%= link_to new_user_session_path, class: "nav-link" do %>
+    <i class="far fa-images"></i> Log In
+    <%end %>
+
+      <% else %>
+    <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+    <i class="far fa-images"></i> Log Out
+    <% end %>
+
+     <%= link_to edit_user_registration_path, class: "nav-link" do %>
+     <i class="far fa-images"></i> Setings
+   <% end %>
+  
+<% end %>
+    <% if user_signed_in? %>
+    <%=link_to current_user.username, class: "nav-link" do %>
+    <i class="far fa-images"></i> Profile
+    <% end %>
+<%  end %>
+  </ul>
+
+  </nav>
